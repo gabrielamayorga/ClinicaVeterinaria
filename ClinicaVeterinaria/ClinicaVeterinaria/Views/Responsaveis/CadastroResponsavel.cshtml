@@ -1,0 +1,107 @@
+﻿@model ClinicaVeterinaria.Models.Responsavel
+<div class="row">
+    <div class="col-md-12" style="text-align:center">
+        <label style="font-size:50px; font-family:fantasy">Cadastro de Responsável</label>
+    </div>
+</div>
+<div style="margin-top: 20px; padding:20px;" class="col-md-6 offset-md-3">
+    <form asp-action="CadastroResponsavel" asp-controller="Responsaveis" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nome:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control" id="" asp-for="Nome">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Nome"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">CPF:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control cpf" id="" asp-for="CPF">
+                    </div>
+                    <span class="text-danger" asp-validation-for="CPF"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">CEP:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control cep" asp-for="CEP">
+                    </div>
+                    <span class="text-danger" asp-validation-for="CEP"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Endereço:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control" asp-for="Endereco">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Endereco"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Email:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control" id="" asp-for="Email">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Data de Nascimento:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control data" id="" asp-for="DataNascimento">
+                    </div>
+                    <span class="text-danger" asp-validation-for="DataNascimento"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="text-align:center">
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-dark" value="Cadastrar" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $("#CEP").on('change', function () {
+            var cep = $("#CEP").val();
+            getCep(cep);
+        })
+    });
+
+    function getCep(cep) {
+        fetch('https://ws.apicep.com/cep/' + cep + '.json', { method: 'GET' })
+            .then(response => response.json())
+            .then(json => {
+                if (json.address == undefined) {
+                    alert('CEP inválido');
+                    return;
+                }
+
+                $("#Endereco").val(json.address + ', ' + json.district + '. ' + json.city + ' - ' + json.state);
+            });
+    }
+
+</script>

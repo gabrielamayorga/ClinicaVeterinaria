@@ -1,0 +1,43 @@
+﻿@model ClinicaVeterinaria.Models.BanhoTosa
+<div class="row">
+    <div class="col-md-12" style="text-align:center">
+        <label style="font-size:50px; font-family:fantasy">Cadastro de Banho e Tosa</label>
+    </div>
+</div>
+<div style="margin-top: 20px; padding:20px;" class="col-md-6 offset-md-3">
+    <form asp-action="CadastroBanhoTosa" asp-controller="BanhoTosa" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Bichinho:</label>
+                    <div class="col-sm-10">
+                        <select asp-items="ViewBag.Bichinhos" asp-for="BichinhoId" class="form-control">
+                            <option>Selecione um bichinho...</option>
+                        </select>
+                    </div>
+                    <span class="text-danger" asp-validation-for="Bichinho"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Data:</label>
+                    <div class="col-sm-10">
+                        <input style="" class="dateTime form-control" type="text" asp-for="Data">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Data"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="text-align:center">
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-dark" value="Cadastrar" />
+            </div>
+        </div>
+    </form>
+
+</div>
+
+

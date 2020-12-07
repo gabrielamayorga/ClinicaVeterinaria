@@ -1,0 +1,48 @@
+﻿@model ClinicaVeterinaria.Models.Veterinario
+<div class="row">
+    <div class="col-md-12" style="text-align:center">
+        <label style="font-size:50px; font-family:fantasy">Cadastro de Veterinário</label>
+    </div>
+</div>
+<div style="margin-top: 20px; padding:20px;" class="col-md-6 offset-md-3">
+    <form asp-action="CadastroVeterinario" asp-controller="Veterinarios" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nome:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control" id="" asp-for="Nome">
+                    </div>
+                     <span class="text-danger" asp-validation-for="Nome"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">CPF:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control cpf" id="" asp-for="CPF">
+                    </div>
+                     <span class="text-danger" asp-validation-for="CPF"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">CRMV:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control" id="" asp-for="CRMV">
+                    </div>
+                     <span class="text-danger" asp-validation-for="CRMV"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="text-align:center">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-dark">Cadastrar</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+﻿@model List<ClinicaVeterinaria.Models.Responsavel>
+<div style="margin-top: 20px; padding:20px">
+       <div class="row">
+            <div class="col-md-12" style="text-align:center">
+                <label style="font-size:50px; font-family:fantasy">Responsáveis</label>
+            </div>
+        </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+             @foreach (var responsavel in Model)
+            {
+                <tr>
+                    <th scope="row">@responsavel.Id</th>
+                    <td>@responsavel.Nome</td>
+                    <td>@responsavel.CPF</td>
+                    <td><a href="@Url.Action("AlterarResponsavel", "Responsaveis", new { id = responsavel.Id })" class="btn btn-dark">Alterar</a></td>
+                    <td><a href="@Url.Action("Remover", "Responsaveis", new { id = responsavel.Id })" class="btn btn-dark">Excluir</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

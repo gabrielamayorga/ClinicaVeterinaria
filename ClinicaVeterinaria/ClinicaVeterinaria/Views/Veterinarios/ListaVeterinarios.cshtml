@@ -1,0 +1,32 @@
+﻿@model List<ClinicaVeterinaria.Models.Veterinario>
+<div style="margin-top: 20px; padding:20px">
+       <div class="row">
+            <div class="col-md-12" style="text-align:center">
+                <label style="font-size:50px; font-family:fantasy">Veterinários</label>
+            </div>
+        </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">CRMV</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+           @foreach (var veterinario in Model)
+            {
+                <tr>
+                    <th scope="row">@veterinario.Id</th>
+                    <td>@veterinario.Nome</td>
+                    <td>@veterinario.CRMV</td>
+                    <td><a href="@Url.Action("AlterarVeterinario", "Veterinarios", new { id = veterinario.Id })" class="btn btn-dark">Alterar</a></td>
+                    <td><a href="@Url.Action("Remover", "Veterinarios", new { id = veterinario.Id })" class="btn btn-dark">Excluir</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,90 @@
+﻿@model ClinicaVeterinaria.Models.Bichinho
+<div class="row">
+    <div class="col-md-12" style="text-align:center">
+        <label style="font-size:50px; font-family:fantasy">Cadastro de Bichinho</label>
+    </div>
+</div>
+<div style="margin-top: 20px; padding:20px;" class="col-md-6 offset-md-3">
+    <form asp-action="CadastroBichinho" asp-controller="Bichinhos" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nome:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" asp-for="Nome" class="form-control" id="">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Nome"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Responsável:</label>
+                    <div class="col-sm-10">
+                        <select asp-items="ViewBag.Responsaveis" asp-for="ResponsavelId" class="form-control" >
+                            <option value="">Selecione um responsável...</option>
+                        </select>
+                    </div>
+                    <span class="text-danger" asp-validation-for="ResponsavelId"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Espécie:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control" asp-for="Especie" id="">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Especie"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Tipo:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control" asp-for="Tipo" id="">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Tipo"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Data de Nascimento:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control data" asp-for="DataNascimento" id="">
+                    </div>
+                    <span class="text-danger" asp-validation-for="DataNascimento"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Disponivel para adoção:</label>
+                    <div class="col-sm-1">
+                        <input  type="checkbox" class="form-control" asp-for="Adocao" id="">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Adocao"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="text-align:right">
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-dark" value="Cadastrar" />
+            </div>
+        </div>
+
+    </form>
+</div>

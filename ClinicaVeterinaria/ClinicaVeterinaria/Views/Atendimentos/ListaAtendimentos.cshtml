@@ -1,0 +1,37 @@
+﻿@model List<ClinicaVeterinaria.Models.Atendimento>
+<div style="margin-top: 20px; padding:20px">
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <label style="font-size:50px; font-family:fantasy">Atendimentos</label>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Bichinho</th>
+                <th scope="col">Veterinário</th>
+                <th scope="col">Data e hora</th>
+                <th scope="col">Observações</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+          @foreach (var atendimento in Model)
+            {
+                <tr>
+                    <th scope="row">@atendimento.Id</th>
+                    <td>@atendimento.Bichinho.Nome</td>
+                    <td>@atendimento.Veterinario.Nome</td>
+                    <td>@atendimento.Data</td>
+                    <td>@atendimento.Observacao</td>
+                    <td><a href="@Url.Action("AlterarAtendimento", "Atendimentos", new { id = atendimento.Id })" class="btn btn-dark">Alterar</a></td>
+                    <td><a href="@Url.Action("Remover", "Atendimentos", new { id = atendimento.Id })"  class="btn btn-dark">Excluir</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

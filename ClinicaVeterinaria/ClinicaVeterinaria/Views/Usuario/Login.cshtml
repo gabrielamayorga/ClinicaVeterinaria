@@ -1,0 +1,41 @@
+﻿@model ClinicaVeterinaria.Models.Login;
+<div class="row">
+    <div class="col-md-12" style="text-align:center">
+        <label style="font-size:50px; font-family:fantasy">Login</label>
+    </div>
+</div>
+<div style="margin-top: 20px; padding:20px;" class="col-md-6 offset-md-3">
+    <form asp-action="Login" asp-controller="Usuario" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Usuário:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="text" class="form-control" asp-for="Email">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Senha:</label>
+                    <div class="col-sm-10">
+                        <input style="" type="password" class="form-control" asp-for="Senha">
+                    </div>
+                    <span class="text-danger" asp-validation-for="Senha"></span>
+                </div>
+            </div>
+        </div>
+    <div class="row" style="text-align:center">
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-dark" value="Entrar" />
+        </div>
+    </div>
+
+       
+    </form>
+</div>
+
+
